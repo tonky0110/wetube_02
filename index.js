@@ -1,4 +1,8 @@
 import express from "express";
+import morgan from "morgan";
+import helmet from "helmet";
+import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
 
 const app = express();
 
@@ -18,7 +22,11 @@ const betweenHome = (req, res, next) => {
 };
 
 // use middleware
-app.use(betweenHome); // 전역으로 전체 route에서 적용.
+app.use(cookieParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(helmet());
+app.use(morgan("dev"));
 // app.get("/", betweenHome, handleHome); // 필요한 routes에서 선택적으로 적용.
 
 // routes
