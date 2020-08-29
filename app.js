@@ -3,9 +3,11 @@ import morgan from "morgan";
 import helmet from "helmet";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
-import globalRouter from "./routes/globalRouter";
-import userRouter from "./routes/userRouter";
-import videoRouter from "./routes/videoRouter";
+import globalRouter from "./routers/globalRouter";
+import userRouter from "./routers/userRouter";
+import videoRouter from "./routers/videoRouter";
+
+import routes from "./routes";
 
 const app = express();
 
@@ -28,8 +30,8 @@ app.use(morgan("dev"));
 // app.get("/", betweenHome, handleHome); // 필요한 routes에서 선택적으로 적용.
 
 // routes
-app.use("/", globalRouter);
-app.use("/user", userRouter);
-app.use("/video", videoRouter);
+app.use(routes.home, globalRouter);
+app.use(routes.users, userRouter);
+app.use(routes.videos, videoRouter);
 
 export default app;
