@@ -3,6 +3,7 @@ import morgan from "morgan";
 import helmet from "helmet";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
+import { userRouter } from "./routes";
 
 const app = express();
 
@@ -25,7 +26,6 @@ app.use(morgan("dev"));
 // app.get("/", betweenHome, handleHome); // 필요한 routes에서 선택적으로 적용.
 
 // routes
-app.get("/", handleHome);
-app.get("/profile", handleProfile);
+app.use("/user", userRouter);
 
 export default app;
