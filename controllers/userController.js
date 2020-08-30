@@ -1,8 +1,12 @@
-export const join = (req, res) => res.send("Join");
-export const login = (req, res) => res.send("Login");
-export const logout = (req, res) => res.send("Logout");
+export const join = (req, res) => res.send("Join", { pageTitle: "Join" });
+export const login = (req, res) => res.send("Login", { pageTitle: "Login" });
+export const logout = (req, res) => res.send("Logout", { pageTitle: "Logout" });
 
-export const users = (req, res) => res.send("user index");
-export const userDetail = (req, res) => res.send("User Detail");
-export const editProfile = (req, res) => res.send("Edit Profile");
-export const changePassword = (req, res) => res.send("Change Password");
+export const users = (req, res) =>
+  res.send("user index", { pageTitle: "Users" });
+export const userDetail = (req, res) =>
+  res.send("User Detail", { pageTitle: "User Detail" });
+export const editProfile = (req, res) =>
+  res.send("Edit Profile", { pageTitle: "Edit Profile" });
+export const changePassword = (req, res) =>
+  res.send("Change Password", { pageTitle: "Change Password" });
