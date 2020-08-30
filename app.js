@@ -21,6 +21,9 @@ const betweenHome = (req, res, next) => {
   next();
 };
 
+// express server default view engine setting
+app.set("view engine", "pug");
+
 // use middleware
 app.use(cookieParser());
 app.use(bodyParser.json());
