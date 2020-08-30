@@ -3,6 +3,7 @@ import morgan from "morgan";
 import helmet from "helmet";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
+import path from "path";
 import { localsMiddleware } from "./middlewares";
 import routes from "./routes";
 import globalRouter from "./routers/globalRouter";
@@ -23,6 +24,7 @@ const betweenHome = (req, res, next) => {
 
 // express server default view engine setting
 app.set("view engine", "pug");
+app.set("views", path.join(__dirname, "views"));
 
 // use middleware
 app.use(helmet());
